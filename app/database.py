@@ -90,13 +90,6 @@ class Database:
     def _sort_add_transaction(self) -> None:
         '''
         Sort transactions by timestamp
-
-        NOTE: I considered using a binary tree insertion to do this in log(n) time;
-        however, I decided against that since in a production environment "transactions"
-        would likely be stored in a SQL database indexed around the transaction time.
-        That would already be able to insert in log(n) time, so making that optimization
-        in this testing solution would be redundant and removed if turned into a
-        production version.
         '''
         print("@_sort_add_transaction")
         self.transactions.sort(key= lambda x: x.timestamp)
